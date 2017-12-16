@@ -1,0 +1,20 @@
+{
+  "name": "cellvis-backend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app/entry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Attila V. Molnar <ate.molnar2@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "apollo-server": "^0.3.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-fileupload": "^0.3.0",
+    "graphiql": "^0.11.5"
+  }
+}
