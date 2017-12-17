@@ -5,13 +5,23 @@
 	"version": "0.0.1",
 	"description": "",
 	"main": "app/visserver",
-	"keywords": ["3D", "WebGL", "Data Visualization", "Voxel", "Volume", "Three.js"],
+	"keywords": [
+		"3D",
+		"WebGL",
+		"Data Visualization",
+		"Voxel",
+		"Volume",
+		"Three.js"
+	],
 	"scripts": {
+		"start:dev": "nodemon ./app/astrea -- --debug --config ./app/config.json --root app/public --port 4500",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "Attila V. Molnar <ate.molnar2@gmail.com>",
 	"license": "MIT",
-	"devDependencies": {},
+	"devDependencies": {
+		"nodemon": "^1.13.3"
+	},
 	"dependencies": {
 		"body-parser": "^1.18.2",
 		"express": "^4.16.2",

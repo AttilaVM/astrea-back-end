@@ -21,7 +21,7 @@ appDataProm
 		const doc = `
 	usage:
 		 ${appData.name} [--help] [--version]
-		 ${appData.name} [--config=configPath] [--debug] [--port=port] [--root=root]
+		 ${appData.name} [--config=config] [--debug] [--port=port] [--root=root]
 
 Websever and SQL database manager for the ${appData.name} volumetric data viewer. If you find a bug or have a suggestion please write an issue to ${appData.url}.
 
@@ -38,7 +38,7 @@ CLI arguments can override configuration.
 
 		const args = neodoc.run(doc);
 
-		const configPath = args["<configPath=value>"] || DEFAULT_CONFIG;
+		const configPath = args["--config"] || DEFAULT_CONFIG;
 		cliUtils.readJson(configPath)
 			.then((config) => {
 				const options = cliUtils.mergeOptions(args, config);
