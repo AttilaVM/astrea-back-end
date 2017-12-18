@@ -2,6 +2,8 @@
 
 const dict = require("./event-dict.js");
 
+const md5 = require("md5");
+
 const handlers = {
 	provideVoxelSample: function(req, res) {
 		// validateRequest()
@@ -15,11 +17,13 @@ const handlers = {
 		if (!req.files)
 			return res.status(400).send("No files were uploaded.");
 		console.log(req.files);
-
 		const imgFile = req.files.voxel_img;
 		const dataFile = req.files.app_data;
 		const imgWritePromise = imgFile.mv("./" + imgFile.name);
 		const data = JSON.parse((dataFile.data.toString()));
+
+		data.hash = md5(imgFile.data);
+
 
 		imgWritePromise
 			.then(() => {

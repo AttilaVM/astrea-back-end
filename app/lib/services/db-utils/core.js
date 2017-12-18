@@ -16,6 +16,7 @@ const dbUtils = {
 								,(data) => {
 									sampleModel.create({
 										sampleName: data.sampleName
+										, hash: data.hash
 										, zScaler: data.zScaler
 										, ambient: data.ambient
 										, interpolation: data.interpolation
