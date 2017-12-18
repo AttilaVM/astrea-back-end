@@ -21,7 +21,7 @@ appDataProm
 		const doc = `
 	usage:
 		 ${appData.name} [--help] [--version]
-		 ${appData.name} [--config=config] [--debug] [--port=port] [--root=root]
+		 ${appData.name} [--config=config] [--debug] [--port=port] [--root=root] [--verbosity=verbosity]
 
 Websever and SQL database manager for the ${appData.name} volumetric data viewer. If you find a bug or have a suggestion please write an issue to ${appData.url}.
 
@@ -30,10 +30,11 @@ CLI arguments can override configuration.
 
 	options:
 		-h, --help     Prints this help text.
-		-v, --version  Print version.
+		--version  Print version.
 		-c, --config   Set a custom config file path, instead of the default ./config.json.
 		-d, --debug    Debug mode, do not use this in a production environment.
 		-r, --root     Set the server root directory
+		-v, --verbosity  Sets the verbosity level. 0 = quiet, 1 = Critical errors, 2 = errors, 3 = warnings, 4 = notifications, 5 = debug
 		`;
 
 		const args = neodoc.run(doc);

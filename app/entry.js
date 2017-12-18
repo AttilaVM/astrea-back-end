@@ -1,33 +1,20 @@
-const express = require("express");
-
-// middlewares
-const logger = require("morgan");
-const bodyParser = require("body-parser");
-const fileUpload = require("express-fileupload");
-
+const EventDispatcher = require("./lib/event-dispatcher.js");
 const cliUtils = require("./lib/utils/cli.js");
-const handlers = require("./lib/handlers.js");
 
-
-const app = express();
+const dbManager = require("./lib/services/db.js");
+const webserver = require("./lib/services/webserver.js");
+const cli = require("./lib/services/cli.js");
 
 module.exports = function astrea(opts, appData) {
+	global.eventDispatcher = new EventDispatcher();
+	cli.registerCli(opts.debug, opts.verbosity);
 	if (opts.debug) {
 		cliUtils.printInfo("Astrea options:");
 		cliUtils.prettyObjPrint(opts, 1);
 		cliUtils.printInfo("\n");
 	}
-	// Activate middlewares
-	app.use(express.static(opts.root));
-	app.use(fileUpload());
-	app.use(bodyParser.json());
-	if (opts.debug)
-		app.use(logger("dev"));
 
-	// Actions
-	app.post("*", handlers.saveVoxelSample);
+	dbManager.registerDbManager(opts.db);
+	webserver.registerWebServer(opts.webserver);
 
-	app.listen(opts.port, (e) => {
-		cliUtils.printInfo(`Listening on ${opts.port}`);
-});
 };

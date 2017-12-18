@@ -10,12 +10,15 @@ function prettyObjPrint(obj, indent) {
 		for (let prop in obj) {
 			if(!obj.hasOwnProperty(prop))
 				continue;
-			let value = obj[prop];
-			if (typeof(value) === "object")
-				prettyObjPrint(value, indent++);
 			let indentArr = [];
 			for (var i = 1; i <= indent; i++) {
 				indentArr.push("\t");
+			}
+			let value = obj[prop];
+			if (typeof(value) === "object") {
+				console.info(`${indentArr.join("")}${prop}:`);
+				prettyObjPrint(value, indent+1);
+				continue;
 			}
 			console.info(`${indentArr.join("")}${prop}: ${value}`);
 		}
