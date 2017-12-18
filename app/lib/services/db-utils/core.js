@@ -16,13 +16,13 @@ const dbUtils = {
 								,(data) => {
 									sampleModel.create({
 										sampleName: data.sampleName
+										, zScaler: data.zScaler
+										, ambient: data.ambient
+										, interpolation: data.interpolation
 									});
 								});
 						}
 					 );
-
-
-
 	}
 };
 

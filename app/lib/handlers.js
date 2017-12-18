@@ -21,10 +21,11 @@ const handlers = {
 		const imgWritePromise = imgFile.mv("./" + imgFile.name);
 		const data = JSON.parse((dataFile.data.toString()));
 
-		eventDispatcher.upload(data);
-
 		imgWritePromise
-			.then(() => res.send("Data uploaded"));
+			.then(() => {
+				eventDispatcher.upload(data);
+				res.send("Data uploaded");
+			});
 
 	}
 };

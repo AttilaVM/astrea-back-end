@@ -14,9 +14,10 @@ const dbManager = {
 			, dbConf.opts);
 
 		const sampleModel = sequelize.define('sample', {
-			sampleName: {
-				type: Sequelize.STRING
-			}
+			sampleName: {type: Sequelize.STRING}
+			, zScaler: {type: Sequelize.FLOAT}
+			, ambient: {type: Sequelize.FLOAT}
+			, interpolation: {type: Sequelize.STRING}
 		});
 
 		sequelize
