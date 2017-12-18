@@ -13,6 +13,11 @@ class EventDispatcher extends events.EventEmitter {
 	dataBaseState(state) {
 		this.emit(dict.DATABASE_STATE.id, dict.DATABASE_STATE.START);
 	}
+
+	upload(data) {
+		console.log(data);
+		this.emit(dict.UPLOAD.id, data);
+	}
 }
 
 module.exports = EventDispatcher;

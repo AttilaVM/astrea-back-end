@@ -1,5 +1,7 @@
 "use strict";
 
+const dict = require("./event-dict.js");
+
 const handlers = {
 	provideVoxelSample: function(req, res) {
 		// validateRequest()
@@ -17,7 +19,9 @@ const handlers = {
 		const imgFile = req.files.voxel_img;
 		const dataFile = req.files.app_data;
 		const imgWritePromise = imgFile.mv("./" + imgFile.name);
-		console.log(JSON.parse((dataFile.data.toString())));
+		const data = JSON.parse((dataFile.data.toString()));
+
+		eventDispatcher.upload(data);
 
 		imgWritePromise
 			.then(() => res.send("Data uploaded"));

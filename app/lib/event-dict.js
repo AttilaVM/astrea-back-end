@@ -11,6 +11,7 @@ const eventDict = {
 		id: 1
 		, START: 0
 	}
+	, UPLOAD: { id: 2 }
 };
 
 module.exports = eventDict;
