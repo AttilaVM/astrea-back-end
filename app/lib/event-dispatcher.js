@@ -18,6 +18,22 @@ class EventDispatcher extends events.EventEmitter {
 		console.log(data);
 		this.emit(dict.UPLOAD.id, data);
 	}
+
+	queryAll(token) {
+		this.emit(dict.QUERY_ALL.id, token);
+	}
+
+	dbReport(token, data) {
+		this.emit(dict.DB_REPORT.id, token, data);
+	}
+
+	fileWrite(token, blob, fileName) {
+		this.emit(dict.FILE_WRITE, blob, fileName);
+	}
+
+	fileWritten(success, token) {
+		this.emit(dict.FILE_WRITTEN, success, token);
+	}
 }
 
 module.exports = EventDispatcher;

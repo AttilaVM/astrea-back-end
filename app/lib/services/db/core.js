@@ -25,6 +25,18 @@ const dbUtils = {
 						}
 					 );
 	}
+
+	, reporter(sampleModel) {
+		eventDispatcher.addListener(
+			dict.QUERY_ALL.id
+			, (token) => {
+				sampleModel.findAll()
+					.then((data) => {
+						eventDispatcher.dbReport(token, data);
+					});
+			}
+		);
+	}
 };
 
 module.exports = dbUtils;

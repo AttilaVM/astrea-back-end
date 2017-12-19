@@ -8,7 +8,7 @@ const fs = require("fs");
 const path = require("path");
 const neodoc = require("neodoc");
 
-const cliUtils = require("./lib/utils/cli");
+const cliUtils = require("./lib/services/cli/utils.js");
 
 const packakgeJsonPath =
 						(path.join(path.dirname(__dirname)
@@ -20,8 +20,9 @@ appDataProm
 	.then((appData) => {
 		const doc = `
 	usage:
-		 ${appData.name} [--help] [--version]
 		 ${appData.name} [--config=config] [--debug] [--port=port] [--root=root] [--verbosity=verbosity]
+		 ${appData.name} [--help] [--version]
+		 ${appData.name} [--export-db]
 
 Websever and SQL database manager for the ${appData.name} volumetric data viewer. If you find a bug or have a suggestion please write an issue to ${appData.url}.
 
@@ -29,12 +30,13 @@ Notes:
 CLI arguments can override configuration.
 
 	options:
-		-h, --help     Prints this help text.
+		-h, --help       Prints this help text.
 		--version  Print version.
-		-c, --config   Set a custom config file path, instead of the default ./config.json.
-		-d, --debug    Debug mode, do not use this in a production environment.
-		-r, --root     Set the server root directory
+		-c, --config     Set a custom config file path, instead of the default ./config.json.
+		-d, --debug      Debug mode, do not use this in a production environment.
+		-r, --root       Set the server root directory
 		-v, --verbosity  Sets the verbosity level. 0 = quiet, 1 = Critical errors, 2 = errors, 3 = warnings, 4 = notifications, 5 = debug
+		--export-db      Export database into CSV files.
 		`;
 
 		const args = neodoc.run(doc);

@@ -1,4 +1,4 @@
-const dict = require("../event-dict.js");
+const dict = require("../../event-dict.js");
 
 const cli = {
 	registerCli(debug, verbosity) {
