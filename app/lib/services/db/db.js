@@ -17,6 +17,8 @@ const dbManager = {
 			sampleName: {type: Sequelize.STRING}
 			// a md5 hash has 32 hexdigits
 			, hash: {type: Sequelize.STRING(32) }
+			, sampleImgPath: { type: Sequelize.STRING()}
+			, thumbImgPath: { type: Sequelize.STRING()}
 			, zScaler: {type: Sequelize.FLOAT}
 			, ambient: {type: Sequelize.FLOAT}
 			, interpolation: {type: Sequelize.STRING}

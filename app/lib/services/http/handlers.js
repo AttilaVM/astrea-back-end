@@ -1,5 +1,7 @@
 "use strict";
 
+const path = require("path");
+
 const dict = require("../../event-dict.js");
 
 const md5 = require("md5");
@@ -18,30 +20,47 @@ const handlers = {
 		// validateRequest()
 		// query()
 	}
-	, saveVoxelSample: function(req, res) {
+	, saveVoxelSample: function(req, res, httpRoot, samplePath, thumbPath) {
+		const samplePathRel = path.join(httpRoot, samplePath);
+		const thumbPathRel = path.join(httpRoot, thumbPath);
 		// validateRequest()
 		// validateSample()
 		// save()
 		console.log("save");
-		if (!req.files)
+		if (!req.files) {
 			return res.status(400).send("No files were uploaded.");
-		console.log(req.files);
+			eventDispatcher.msg(dict.MSG.WARNING, `Client on ${req.ip} has not uploaded any files`);
+		}
+		eventDispatcher.msg(5, req.files);
 		const volImgFile = req.files.voxel_img;
 		const thumbImgFile = req.files.thumb_img;
 		const dataFile = req.files.app_data;
-		const volWritePromise = volImgFile.mv("./data/volume/" + volImgFile.name);
-		const thumbWritePromise = thumbImgFile.mv("./data/thumb/" + volImgFile.name);
-		const data = JSON.parse((dataFile.data.toString()));
 
+		let volWritePromise;
+		let thumbWritePromise;
+		let sampleImgPath;
+		let thumbImgPath;
+		if (samplePath && thumbPath) {
+			sampleImgPath = path.join(samplePathRel, volImgFile.name);
+			thumbImgPath = path.join(thumbPathRel, thumbImgFile.name);
+			volWritePromise = volImgFile.mv(sampleImgPath);
+			thumbWritePromise = thumbImgFile.mv(thumbImgPath);
+		}
+		const data = JSON.parse((dataFile.data.toString()));
 		data.hash = md5(volImgFile.data);
-		console.log(data.hash.length);
+		data.sampleImgPath = path.join(samplePath, volImgFile.name);
+		data.thumbImgPath = path.join(thumbPath, thumbImgFile.name);
 
 		Promise.all([volWritePromise, thumbWritePromise])
 			.then(() => {
 				eventDispatcher.upload(data);
-				res.send("Data uploaded");
+				res.status(201).send("Data uploaded");
+			})
+			.catch((err) => {
+				// TODO this should only be sent in debug mode
+				eventDispatcher.msg(dict.MSG.CRITICAL, err);
+				res.status(500).send("Internal server error");
 			});
-
 	}
 
 	, downloadData(req, res) {

@@ -1,5 +1,5 @@
 const dict = require("../../event-dict.js");
-
+const path = require("path");
 const express = require("express");
 
 // middlewares
@@ -11,7 +11,7 @@ const handlers = require("./handlers.js");
 
 
 const webserver = {
-	registerWebServer(opts) {
+	registerWebServer(opts, samplePath, thumbPath) {
 		const app = express();
 		// Activate middlewares
 		app.use(express.static(opts.root));
@@ -21,7 +21,14 @@ const webserver = {
 			app.use(logger("dev"));
 		// Actions
 		app.get("/data", handlers.downloadData);
-		app.post("*", handlers.saveVoxelSample);
+		app.post("*", (req, res) => {
+
+			handlers.saveVoxelSample(req
+															 , res
+															 , opts.root
+															 , samplePath
+															 , thumbPath);
+		});
 
 		eventDispatcher.addListener(
 			dict.DATABASE_STATE.id

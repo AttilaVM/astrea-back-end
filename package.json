@@ -1,37 +1,38 @@
 {
-  "name": "astrea",
-  "url": "https://github.com/AttilaVM/astrea",
-  "email": "ate.molnar2@gmail.com",
-  "version": "0.0.1",
-  "description": "",
-  "main": "app/visserver",
-  "keywords": [
-    "3D",
-    "WebGL",
-    "Data Visualization",
-    "Voxel",
-    "Volume",
-    "Three.js"
-  ],
-  "scripts": {
-    "start:dev": "nodemon ./app/astrea -- --debug --config ./app/config.json --root app/public --port 4500",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Attila V. Molnar <ate.molnar2@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "nodemon": "^1.13.3"
-  },
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "express-fileupload": "^0.3.0",
-    "md5": "^2.2.1",
-    "morgan": "^1.9.0",
-    "neodoc": "^1.4.0",
-    "pg": "^6.4.2",
-    "pg-hstore": "^2.3.2",
-    "ramda": "^0.25.0",
-    "sequelize": "^4.28.5"
-  }
+	"name": "astrea",
+	"url": "https://github.com/AttilaVM/astrea",
+	"email": "ate.molnar2@gmail.com",
+	"version": "0.0.1",
+	"description": "",
+	"main": "app/visserver",
+	"keywords": [
+		"3D",
+		"WebGL",
+		"Data Visualization",
+		"Voxel",
+		"Volume",
+		"Three.js"
+	],
+	"scripts": {
+		"start:dev": "nodemon ./app/astrea -- --config ./app/config-dev.json",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Attila V. Molnar <ate.molnar2@gmail.com>",
+	"license": "MIT",
+	"devDependencies": {
+		"nodemon": "^1.13.3"
+	},
+	"dependencies": {
+		"body-parser": "^1.18.2",
+		"express": "^4.16.2",
+		"express-fileupload": "^0.3.0",
+		"md5": "^2.2.1",
+		"mkdirp": "^0.5.1",
+		"morgan": "^1.9.0",
+		"neodoc": "^1.4.0",
+		"pg": "^6.4.2",
+		"pg-hstore": "^2.3.2",
+		"ramda": "^0.25.0",
+		"sequelize": "^4.28.5"
+	}
 }

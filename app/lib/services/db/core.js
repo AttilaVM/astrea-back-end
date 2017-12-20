@@ -17,6 +17,8 @@ const dbUtils = {
 									sampleModel.create({
 										sampleName: data.sampleName
 										, hash: data.hash
+										, sampleImgPath: data.sampleImgPath
+										, thumbImgPath: data.thumbImgPath
 										, zScaler: data.zScaler
 										, ambient: data.ambient
 										, interpolation: data.interpolation
