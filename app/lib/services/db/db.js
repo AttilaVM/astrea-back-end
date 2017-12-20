@@ -19,6 +19,9 @@ const dbManager = {
 			, hash: {type: Sequelize.STRING(32) }
 			, sampleImgPath: { type: Sequelize.STRING()}
 			, thumbImgPath: { type: Sequelize.STRING()}
+			, xScale: {type: Sequelize.INTEGER}
+			, yScale: {type: Sequelize.INTEGER}
+			, zScale: {type: Sequelize.INTEGER}
 			, zScaler: {type: Sequelize.FLOAT}
 			, ambient: {type: Sequelize.FLOAT}
 			, interpolation: {type: Sequelize.STRING}

@@ -12,7 +12,7 @@ function getReport(res, originalToken, returnToken, data) {
 	eventDispatcher.removeListener(dict.DB_REPORT.id, getReport);
 	console.log("DATA!:", data);
 
-	res.send(data);
+	res.send(JSON.stringify(data));
 }
 
 const handlers = {

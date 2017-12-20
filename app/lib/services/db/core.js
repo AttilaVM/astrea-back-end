@@ -19,6 +19,9 @@ const dbUtils = {
 										, hash: data.hash
 										, sampleImgPath: data.sampleImgPath
 										, thumbImgPath: data.thumbImgPath
+										, xScale: data.voxelDimensions[0]
+										, yScale: data.voxelDimensions[1]
+										, zScale: data.voxelDimensions[2]
 										, zScaler: data.zScaler
 										, ambient: data.ambient
 										, interpolation: data.interpolation
