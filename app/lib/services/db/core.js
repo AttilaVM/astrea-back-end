@@ -8,7 +8,7 @@ const dbUtils = {
 			dict.MSG.NOTIFICATiON ,"Database connection is ready");
 		eventDispatcher.dataBaseState(dict.DATABASE_STATE.START);
 
-		sampleModel.sync({force: true})
+		sampleModel.sync({force: false})
 			.then(() =>
 						{
 							eventDispatcher.addListener(

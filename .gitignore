@@ -6,3 +6,4 @@ node_modules
 app/public
 **/.tern-port
 app/data
+/app/config-dev.json
