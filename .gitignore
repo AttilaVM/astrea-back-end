@@ -5,4 +5,4 @@ node_modules
 /**/#*
 app/public
 **/.tern-port
-*.png
+app/data
