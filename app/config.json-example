@@ -1,0 +1,29 @@
+{
+	"debug": true,
+	"verbosity": 4,
+	"webserver": {
+		"port": 3000,
+		"root": "public"
+	},
+	"db": {
+		"user": "db user name",
+		"id": "database IS",
+		"password": "user password",
+		"opts": {
+			"dialect": "postgres",
+			"host": "db host",
+			"pool": {
+				"max": 5,
+				"min": 1,
+				"acquire": 30000,
+				"idle": 10000
+			}
+		}
+	},
+	"fileManager": {
+		"type": "local",
+		"root": "data",
+		"sampleDir": "samples",
+		"thumbDir": "thumbs"
+	}
+}
