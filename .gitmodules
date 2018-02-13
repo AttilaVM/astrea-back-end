@@ -1,0 +1,3 @@
+[submodule "app/front-end"]
+	path = app/front-end
+	url = git@github.com:AttilaVM/astrea-front-end.git
