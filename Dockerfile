@@ -11,4 +11,4 @@ RUN  $APP_ROOT/init.sh
 
 EXPOSE $PORT
 
-ENTRYPOINT ["/home/node/astrea/start.sh"]
+CMD ["/home/node/astrea/start.sh"]
