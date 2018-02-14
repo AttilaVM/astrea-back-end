@@ -7,3 +7,4 @@ app/public
 **/.tern-port
 app/data
 /app/config-dev.json
+/app/config.json

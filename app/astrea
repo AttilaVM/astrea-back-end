@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const DEFAULT_CONFIG = "config-dev.json";
+const DEFAULT_CONFIG = "config.json";
 
 const astrea = require("./entry.js");
 

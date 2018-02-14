@@ -3,15 +3,15 @@
 	"verbosity": 4,
 	"webserver": {
 		"port": 3000,
-		"root": "public"
+		"root": "./front-end/dist"
 	},
 	"db": {
-		"user": "db user name",
-		"id": "database IS",
-		"password": "user password",
+		"user": "DB_USER",
+		"id": "DB_ID",
+		"password": "DB_PASS",
 		"opts": {
-			"dialect": "postgres",
-			"host": "db host",
+			"dialect": "DB_DIALECT",
+			"host": "DB_HOST",
 			"pool": {
 				"max": 5,
 				"min": 1,

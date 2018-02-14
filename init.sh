@@ -4,7 +4,7 @@
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 # Install global dependencies
-npm install --global gulp rollup
+npm install --global gulp@3.9.1 rollup@0.55.5
 
 # build front end
 
