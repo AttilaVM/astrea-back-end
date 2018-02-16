@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+/etc/init.d/postgresql start
+
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 cd app

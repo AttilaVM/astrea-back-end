@@ -11,16 +11,10 @@ This back-end is in an very early stage of development, thankfully the [front-en
 This is the most easiest and stable way to work with Astrea.
 
 ``` shell
-docker run astrea -p 8000:3000 \
-									-e DB_USER=username \
-									-e DB_ID=id \
-									-e DB_PASS=password \
-									-e DB_DIALECT=dialect \
-									-e DB_HOST=host
-
+docker run -p 8080:3000 attilavm/astrea:easy
 ```
 
-It is tested with PoestgreSQL so you are recommend to use it, so you should choode `postgres` dialect.
+The database is included in the image.
 
 ## Set up mannualy
 

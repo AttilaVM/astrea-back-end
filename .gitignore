@@ -8,3 +8,4 @@ app/public
 app/data
 /app/config-dev.json
 /app/config.json
+my_start.sh
